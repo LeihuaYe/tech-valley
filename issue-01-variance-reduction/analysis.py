@@ -12,7 +12,7 @@ Each "# ---- block N" section is one simulation; plotting code follows it.
   7. Trap 4: stale covariate (rho -> 0) -> no variance reduction
 
 Run:  python analysis.py        (numpy, scipy, matplotlib; seeded)
-Out:  figures/01..07.png and the numbers quoted in the post
+Out:  figures/01..04.png (the post's Figures 1-4), extra_*.png (not in the post), and the numbers quoted in the post
 """
 
 from pathlib import Path
@@ -200,7 +200,7 @@ ax.set_xlabel("Estimated treatment effect")
 ax.set_ylabel("Simulated tests")
 ax.set_title("Controlling for a post-treatment variable removes the effect")
 ax.legend(frameon=False, loc="upper left", fontsize=9)
-save(fig, "04_trap1_post_treatment.png")
+save(fig, "extra_trap1_post_treatment.png")
 
 print()
 # ---- block 5
@@ -231,7 +231,7 @@ ax.set_ylabel("Estimated effect (truth 0.10)")
 ax.set_title("Chance imbalance moves the raw estimate. CUPED corrects it.\n"
              "(5,000 randomizations, ρ = 0.7)")
 ax.legend(frameon=False, markerscale=4, loc="upper left")
-save(fig, "05_trap2_imbalance.png")
+save(fig, "04_trap2_imbalance.png")
 
 print()
 # ---- block 6
@@ -267,7 +267,7 @@ ax.set_xlabel("Days of the 14-day \"pre-period\" that fall after launch")
 ax.set_ylabel("CUPED estimate")
 ax.set_title("A covariate window that overlaps launch eats the effect")
 ax.grid(alpha=0.3)
-save(fig, "08_launch_overlap.png")
+save(fig, "extra_launch_overlap.png")
 
 print()
 # ---- block 7
@@ -302,7 +302,7 @@ ax.set_xlabel("Pre-period length (days)")
 ax.set_ylabel("Variance reduction")
 ax.set_title("A short pre-period gives a smaller gain, not a loss\n(14-day test, noisy daily activity)")
 ax.grid(alpha=0.3)
-save(fig, "06_trap3_pre_period.png")
+save(fig, "extra_trap3_pre_period.png")
 
 print()
 # ---- block 8
@@ -332,4 +332,4 @@ ax.set_ylabel("Variance reduction")
 ax.set_title("Variance reduction is ρ²: weak covariates buy almost nothing")
 ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(0, 0.85))
 ax.grid(alpha=0.3)
-save(fig, "07_trap4_stale_covariate.png")
+save(fig, "extra_trap4_stale_covariate.png")
